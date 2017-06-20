@@ -2,8 +2,8 @@ function solution(N) {
   // Convert N to binary
   let bin = N.toString(2);
 
-  if (bin.lastIndexOf(1) != bin.length-1) {
-    bin = bin.slice(0, bin.lastIndexOf(1));
+  if (bin.lastIndexOf('1') !== bin.length-1) {
+    bin = bin.slice(0, bin.lastIndexOf('1'));
   }
   bin = bin.split('1');
 
