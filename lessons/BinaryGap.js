@@ -1,4 +1,4 @@
-function solution(N) {
+function BinaryGap(N) {
   // Convert N to binary
   let bin = N.toString(2);
 
@@ -15,6 +15,5 @@ function solution(N) {
     }) || 0;
 }
 
-console.log(solution(20));
 
-export default solution;
+module.exports = BinaryGap;
