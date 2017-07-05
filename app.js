@@ -47,40 +47,6 @@ module.exports.game = function game(command) {
 
 }
 
-// function sol(...commands) {
-//   if (!Array.isArray(commands) || commands.length === 0) {
-//     console.log('Start your game by placing your robot, please.');
-//   } else if (!commands[0].includes('PLACE')) {
-//     console.log('Place your robot first, please.');
-//   }
-//   console.log(commands);
-//   commands.map((cur, index) => {
-//     switch (true) {
-//       case cur.includes('PLACE'):
-//         const pos = cur.replace(/PLACE| /g, '').split(',');
-//         const x = parseInt(pos[0]), y = parseInt(pos[1]);
-//         if (x <= SQUARE.x && y <= SQUARE.y && x >= 0 && y >= 0) {
-//           curLocation.f = DIRECTION[pos[2]];
-//           curLocation.x = x;
-//           curLocation.y = y;
-//           move(pos[2]);
-//         }
-//         break;
-//       case cur === 'MOVE':
-//         move(curLocation.f, 1);
-//         break;
-//       case cur === 'LEFT':
-//         curLocation.f = (curLocation.f + 4 - 1) % 4;
-//         break;
-//       case cur === 'RIGHT':
-//         curLocation.f = (curLocation.f + 4 + 1) % 4;
-//         break;
-//       case cur === 'REPORT':
-//         console.log(curLocation.x, curLocation.y, DIR_ARR[curLocation.f]);
-//         break;
-//     }
-//   });
-// }
 
 function move(face = throwError(), step = 0) {
   switch (face) {
@@ -113,10 +79,6 @@ function throwError() {
 
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
-
-// process.stdin.on('data', function (chunk) {
-//   process.stdout.write('data: ' + chunk);
-// });
 
 let step = 1;
 const commands = [];
