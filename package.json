@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-register -R spec -t 5000",
+    "test": "mocha --require babel-register -R spec",
     "coverage": "nyc --reporter=lcov --reporter=text npm test",
     "start": "npm run watch babel-node --presets es2015 app.js"
   },
