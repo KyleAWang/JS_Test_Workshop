@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require babel-register -R spec -t 5000",
+    "coverage": "nyc --reporter=lcov --reporter=text npm test",
     "start": "npm run watch babel-node --presets es2015 app.js",
     "watch": "nodemon --delay 1000ms  app.js"
   },
@@ -17,6 +18,22 @@
     "should": "^11.2.1"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-register": "^6.24.1",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.0.3",
+    "sinon": "^2.3.6"
+  },
+  "nyc": {
+    "include": [
+      "**/*.js"
+    ],
+    "lines": 95,
+    "statements": 95,
+    "functions": 95,
+    "branches": 95,
+    "sourceMap": false,
+    "instrument": false,
+    "report-dir": "./report"
   }
 }
