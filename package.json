@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha --require babel-register -R spec -t 5000",
     "coverage": "nyc --reporter=lcov --reporter=text npm test",
-    "start": "npm run watch babel-node --presets es2015 app.js",
-    "watch": "nodemon --delay 1000ms  app.js"
+    "start": "npm run watch babel-node --presets es2015 app.js"
   },
   "author": "",
   "license": "ISC",
