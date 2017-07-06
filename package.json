@@ -33,7 +33,6 @@
     "functions": 95,
     "branches": 95,
     "sourceMap": false,
-    "instrument": false,
-    "report-dir": "./report"
+    "instrument": false
   }
 }
