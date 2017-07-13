@@ -1,10 +1,14 @@
 module.exports.strTest = function strTest(str) {
   let resultMap = [];
-  if (!str || str !== '') {
-    return resultMap;
+  if (!str || str.length === 0) {
+    return [];
+  }
+
+  str = str.replace(/ /g, '');
+  if (str.length === 0) {
+    return []
   }
   str = str.toUpperCase();
-  str = str.replace(/ /g, '');
   const matchStr = str.match(/[A-Z]/g);
 
   if (str.length !== matchStr.length)
@@ -22,8 +26,8 @@ module.exports.strTest = function strTest(str) {
 };
 
 
-const str = '   ';
+const str = 'FD FEWFQWSA DFSG';
 
 
-console.log(this.strTest(str));
+console.log(this.strTest(null));
 
