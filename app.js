@@ -1,6 +1,6 @@
 module.exports.strTest = function strTest(str) {
   let resultMap = [];
-  if (!str || str.length === 0) {
+  if (!str) {
     return [];
   }
 
@@ -29,5 +29,5 @@ module.exports.strTest = function strTest(str) {
 const str = 'FD FEWFQWSA DFSG';
 
 
-console.log(this.strTest(null));
+console.log(this.strTest(' '));
 
