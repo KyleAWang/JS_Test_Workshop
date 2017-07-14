@@ -1,33 +1,34 @@
-module.exports.strTest = function strTest(str) {
-  let resultMap = [];
-  if (!str) {
-    return [];
-  }
+const game = require('./game');
 
-  str = str.replace(/ /g, '');
-  if (str.length === 0) {
-    return []
-  }
-  str = str.toUpperCase();
-  const matchStr = str.match(/[A-Z]/g);
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
 
-  if (str.length !== matchStr.length)
-    throw new Error('IllegalArgumentException');
+let step = 1;
+const commands = [];
+module.exports.ask = function ask() {
+  var stdin = process.stdin, stdout = process.stdout;
 
-  const strArr = str.split('');
-  strArr.map((cur, index, arr) => {
-    if (resultMap.indexOf(cur) === -1) {
-      resultMap.push(cur);
+  stdin.resume();
+  stdout.write('step' + step + ': ');
+  step++;
+
+  stdin.once('data', function (data) {
+    data = data.toString().trim();
+
+    if (data.toUpperCase() === 'END') {
+      process.exit();
+    } else {
+      if (commands.length === 0 && !data.includes('PLACE')) {
+        console.log('Start your game by placing your robot, please.');
+      } else {
+        commands.push(data);
+        game.play(data);
+      }
+      ask();
     }
   });
-  resultMap.sort((a, b) => b > a);
-
-  return resultMap;
 };
 
 
-const str = 'FD FEWFQWSA DFSG';
-
-
-console.log(this.strTest(' '));
-
+console.log('Input steps one by one in command line as prompt.\nWriting END to finish the game\nInitial default location is 0, 0, NORTH for only PLACE COMMAND');
+this.ask();
